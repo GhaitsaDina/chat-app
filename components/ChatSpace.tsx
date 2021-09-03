@@ -23,7 +23,7 @@ function ChatSpace(props: any) {
                     src={props.user.photoURL}
                     className={style.profilePict}
                 ></img>
-                <h3>You're logged in as {props.user.displayName}</h3>
+                <h3>You are logged in as {props.user.displayName}</h3>
                 <button className={props.style.actions} onClick={props.signOut}>
                     Sign Out
                 </button>
