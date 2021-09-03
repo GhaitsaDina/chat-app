@@ -1,0 +1,25 @@
+.welcomeContainer {
+    background-color: #fbf7f7;
+    width: 700px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Manrope", sans-serif;
+}
+
+.actions {
+    background-color: #a57982;
+    color: #ffffff;
+    border-style: none;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.signInOut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+}

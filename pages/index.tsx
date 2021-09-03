@@ -1,12 +1,14 @@
-import * as firebase from 'firebase/app';
+import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { useState, useEffect } from "react";
+import LoginLogout from "../components/LoginLogout";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCrWBpgJp1l5Kg3UmLrcIPMmvmwQ2qKKc4",
     authDomain: "chat-app-5b9aa.firebaseapp.com",
+    databaseURL:
+        "https://chat-app-5b9aa-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "chat-app-5b9aa",
     storageBucket: "chat-app-5b9aa.appspot.com",
     messagingSenderId: "924077193530",
@@ -24,14 +26,46 @@ const auth = firebase.app().auth();
 const db = firebase.firestore();
 
 function Home() {
+    const [user, setUser] = useState(() => auth.currentUser);
+
+    useEffect(() => {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                setUser(user);
+            } else {
+                setUser(null);
+            }
+        });
+    }, []);
+
+    const signInWithGoogle = async () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.useDeviceLanguage();
+
+        try {
+            await auth.signInWithPopup(provider);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const signOut = async () => {
+        try {
+            await firebase.auth().signOut();
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
     return (
         <div className="container">
-            <div>
-                <h1>Chat App</h1>
-            </div>
-            <div>
-                <button>Login with Google Account</button>
-            </div>
+            <LoginLogout
+                user={user}
+                signInWithGoogle={signInWithGoogle}
+                signOut={signOut}
+                db={db}
+                auth={auth}
+            />
         </div>
     );
 }

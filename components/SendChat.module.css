@@ -1,0 +1,17 @@
+.containerInputChat{
+    width: 100%;
+    padding-left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.inputChat{
+    width: 90%;
+    border-radius: 20px;
+}
+
+.sendChat{
+    padding: 5px;
+    border-radius: 15px;
+    border-style: none;
+}
