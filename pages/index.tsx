@@ -52,7 +52,7 @@ function Home() {
     const signOut = async () => {
         try {
             await firebase.auth().signOut();
-        } catch (error) {
+        } catch (error:any) {
             console.log(error.message);
         }
     };
