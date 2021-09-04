@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
 }
 .profilePict {
     width: 35px;
@@ -10,12 +10,13 @@
 
 .midComp {
     width: 100%;
-    height: 50px;
+    height: 40px;
     background-color: #a57982;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+    font-size: 14px;
 }
 
 .bottomComp {
@@ -28,8 +29,8 @@
 }
 
 .chatComp {
-    max-height: 50vh;
-    min-height: 50vh;
+    max-height: 60vh;
+    min-height: 60vh;
     overflow-y: auto;
     padding-bottom: 20px;
     display: flex;
@@ -39,11 +40,12 @@
 .chatContent{
     display: flex;
     flex-direction: column;
-    max-width: 80%;
+    max-width: 75%;
     overflow-wrap: break-word;
 }
 
 .displayName{
     font-size: 10px;
     color: #a57982;
+    padding-bottom: 5px;
 }

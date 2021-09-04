@@ -8,15 +8,16 @@ function SendChat(props:any) {
     async function sendMessage(e:any) {
         e.preventDefault()
         const { uid, photoURL } = props.auth.currentUser
-        
-        await props.db.collection('messages').add({
-            text: msg,
-            photoURL,
-            uid,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            displayName : props.displayName,
-        })
-        setMsg('')
+        if(msg !== ''){
+            await props.db.collection('messages').add({
+                text: msg,
+                photoURL,
+                uid,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                displayName : props.displayName,
+            })
+            setMsg('')
+        }
     }
 
 

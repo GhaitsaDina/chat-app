@@ -16,7 +16,7 @@ function LoginLogout(props: any) {
             ) : (
                 <div className={style.signInOut} id="sign_in">
                     <h1>Welcome to ChatSpace</h1>
-                    <p>please login to proceed</p>
+                    <p>please sign in to proceed</p>
                     <button
                         className={style.actions}
                         onClick={props.signInWithGoogle}

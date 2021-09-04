@@ -6,7 +6,7 @@ body {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 15px;
     background-color: #302f4d;
 }
 
@@ -35,7 +35,6 @@ input {
     padding-right: 20px;
     color: #302f4d;
     flex-direction: row-reverse;
-    text-align: right;
 }
 
 .received{
@@ -54,4 +53,23 @@ input:focus,
 input:active{
     border: 0.5px solid #302f4d;
     outline: 0;
+}
+
+h3{
+    font-size: 18px;
+}
+h5{
+    background-color: #f1e4e4 ;
+    padding: 10px;
+    border-radius: 20px;
+    width: fit-content;
+    text-align: left;
+    font-weight: lighter;
+}
+
+.msg.sent h5 {
+    align-self: flex-end;
+}
+
+.msg.received h5 {
 }

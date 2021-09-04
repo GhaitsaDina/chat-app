@@ -50,7 +50,7 @@ function ChatSpace(props: any) {
                         </div>
                         <div className={style.chatContent}>
                             <p className={style.displayName}>{displayName}</p>
-                            <p>{text}</p>
+                            <h5>{text}</h5>
                         </div>
                     </div>
                 ))}
