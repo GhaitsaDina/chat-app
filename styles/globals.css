@@ -32,20 +32,20 @@ input {
 }
 
 .sent {
-    padding-right: 20px;
+    padding-right: 15px;
     color: #302f4d;
     flex-direction: row-reverse;
 }
 
 .received {
-    padding-left: 20px;
+    padding-left: 15px;
     color: #302f4d;
 }
 
 .msg {
     display: flex;
-    padding-top: 20px;
-    gap: 10px;
+    padding-top: 10px;
+    gap: 15px;
     font-size: 14px;
 }
 

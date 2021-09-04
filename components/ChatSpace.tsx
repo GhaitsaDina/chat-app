@@ -18,7 +18,8 @@ function ChatSpace(props: any) {
                 );
             });
     }, []);
-
+    let listDateString: string[] = [];
+    let currentDate: any;
     return (
         <>
             <div className={style.signOut} id="sign_out">
@@ -38,12 +39,32 @@ function ChatSpace(props: any) {
             <div className={style.chatComp}>
                 {messages.map(
                     ({ id, text, photoURL, uid, displayName, createdAt }) => {
-                        let date, hours, minutes, hoursString, minutesString;
+                        let date,
+                            hours,
+                            minutes,
+                            hoursString,
+                            minutesString,
+                            dateString: string,
+                            tanggal,
+                            bulan,
+                            tahun;
 
                         if (createdAt) {
                             date = new Date(createdAt["seconds"] * 1000);
                             hours = date.getHours();
                             minutes = date.getMinutes();
+
+                            tanggal = date.getDate().toString();
+                            bulan = (date.getUTCMonth() + 1).toString();
+                            tahun = date.getFullYear().toString();
+
+                            dateString = tanggal + "/" + bulan + "/" + tahun;
+                            currentDate = "";
+                            if (!listDateString.includes(dateString)) {
+                                listDateString.push(dateString);
+                                currentDate = <h5 className={style.singleDate}>{dateString}</h5>;
+                            }
+                            // console.log(listDateString);
 
                             hoursString =
                                 hours < 10
@@ -56,31 +77,34 @@ function ChatSpace(props: any) {
                         }
 
                         return (
-                            <div
-                                key={id}
-                                className={`msg ${
-                                    uid === props.auth.currentUser.uid
-                                        ? "sent"
-                                        : "received"
-                                }`}
-                            >
-                                <div>
-                                    <img
-                                        className={style.profilePict}
-                                        src={photoURL}
-                                    />
+                            <div key={id}>
+                                <div className={style.dateContainer}>
+                                    <div className={style.date}>{currentDate}</div>
                                 </div>
-                                <div className={style.chatContent}>
-                                    <p className={style.displayName}>
-                                        {displayName}
-                                    </p>
-                                    <h5>{text}</h5>
-                                    {createdAt && (
-                                        <h6>
-                                            {hoursString}:{minutesString}
-                                        </h6>
-                                    )}
-
+                                <div
+                                    className={`msg ${
+                                        uid === props.auth.currentUser.uid
+                                            ? "sent"
+                                            : "received"
+                                    }`}
+                                >
+                                    <div>
+                                        <img
+                                            className={style.profilePict}
+                                            src={photoURL}
+                                        />
+                                    </div>
+                                    <div className={style.chatContent}>
+                                        <p className={style.displayName}>
+                                            {displayName}
+                                        </p>
+                                        <h5>{text}</h5>
+                                        {createdAt && (
+                                            <h6>
+                                                {hoursString}:{minutesString}
+                                            </h6>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         );

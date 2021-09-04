@@ -5,7 +5,7 @@
     padding: 15px;
 }
 .profilePict {
-    width: 35px;
+    width: 40px;
 }
 
 .midComp {
@@ -48,4 +48,22 @@
     font-size: 12px;
     color: #a57982;
     padding-bottom: 5px;
+}
+
+.dateContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.date{
+    background-color: #c4c4c4;
+    border-radius: 15px;
+}
+
+.singleDate{
+    font-size: 10px;
+    padding: 5px;
+    color: white;
 }
