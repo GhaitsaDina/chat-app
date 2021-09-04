@@ -4,16 +4,17 @@ import style from "./SendChat.module.css";
 
 function SendChat(props:any) {
     const [msg, setMsg] = useState('')
-
+    
     async function sendMessage(e:any) {
         e.preventDefault()
         const { uid, photoURL } = props.auth.currentUser
-
+        
         await props.db.collection('messages').add({
             text: msg,
             photoURL,
             uid,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            displayName : props.displayName,
         })
         setMsg('')
     }

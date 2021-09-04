@@ -10,11 +10,14 @@ function ChatSpace(props: any) {
             .orderBy("createdAt")
             .limit(50)
             .onSnapshot((snapshot: any) => {
-                setMessages(snapshot.docs.map((doc: any) => ({id: doc.id, ...doc.data()})));
+                setMessages(
+                    snapshot.docs.map((doc: any) => ({
+                        id: doc.id,
+                        ...doc.data(),
+                    }))
+                );
             });
     }, []);
-
-
 
     return (
         <>
@@ -33,7 +36,7 @@ function ChatSpace(props: any) {
             </div>
 
             <div className={style.chatComp}>
-                {messages.map(({ id, text, photoURL, uid }) => (
+                {messages.map(({ id, text, photoURL, uid, displayName }) => (
                     <div
                         key={id}
                         className={`msg ${
@@ -42,17 +45,23 @@ function ChatSpace(props: any) {
                                 : "received"
                         }`}
                     >
-                        <img
-                            className={style.profilePict}
-                            src={photoURL}
-                        />
-                        <p>{text}</p>
+                        <div>
+                            <img className={style.profilePict} src={photoURL} />
+                        </div>
+                        <div className={style.chatContent}>
+                            <p className={style.displayName}>{displayName}</p>
+                            <p>{text}</p>
+                        </div>
                     </div>
                 ))}
             </div>
 
             <div className={style.bottomComp}>
-                <SendChat db={props.db} auth={props.auth} />
+                <SendChat
+                    db={props.db}
+                    auth={props.auth}
+                    displayName={props.user.displayName}
+                />
             </div>
         </>
     );
