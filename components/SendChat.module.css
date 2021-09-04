@@ -7,11 +7,14 @@
 
 .inputChat{
     width: 90%;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .sendChat{
-    padding: 5px;
+    font-size: 12px;
+    background-color: #302f4d;
+    color: white;
+    padding: 10px;
     border-radius: 15px;
     border-style: none;
     cursor: pointer;

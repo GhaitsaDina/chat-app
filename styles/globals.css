@@ -37,12 +37,12 @@ input {
     flex-direction: row-reverse;
 }
 
-.received{
+.received {
     padding-left: 20px;
     color: #302f4d;
 }
 
-.msg{
+.msg {
     display: flex;
     padding-top: 20px;
     gap: 10px;
@@ -50,24 +50,25 @@ input {
 }
 
 input:focus,
-input:active{
+input:active {
     border: 0.5px solid #302f4d;
     outline: 0;
 }
 
-h3{
+h3 {
     font-size: 18px;
 }
-h5{
+h5 {
     padding: 10px;
-    
+    font-size: 14px;
     width: fit-content;
     text-align: left;
     font-weight: lighter;
+    max-width: 100%;
 }
 
 .msg.sent h5 {
-    border-radius: 20px 0 20px 20px;    
+    border-radius: 20px 0 20px 20px;
     background-color: #f1e4e4;
     align-self: flex-end;
 }
@@ -76,8 +77,16 @@ h5{
     text-align: right;
 }
 
-.msg.received h5 {    
-    border-radius:0 20px  20px 20px; 
-    background-color: #cdccda ;
+.msg.received h5 {
+    border-radius: 0 20px 20px 20px;
+    background-color: #cdccda;
+}
 
+h6{
+    color: #C4C4C4;
+    padding-top: 5px;
+}
+
+.msg.sent h6 {
+    text-align: right;
 }

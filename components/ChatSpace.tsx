@@ -36,26 +36,57 @@ function ChatSpace(props: any) {
             </div>
 
             <div className={style.chatComp}>
-                {messages.map(({ id, text, photoURL, uid, displayName }) => (
-                    <div
-                        key={id}
-                        className={`msg ${
-                            uid === props.auth.currentUser.uid
-                                ? "sent"
-                                : "received"
-                        }`}
-                    >
-                        <div>
-                            <img className={style.profilePict} src={photoURL} />
-                        </div>
-                        <div className={style.chatContent}>
-                            <p className={style.displayName}>{displayName}</p>
-                            <h5>{text}</h5>
-                        </div>
-                    </div>
-                ))}
-            </div>
+                {messages.map(
+                    ({ id, text, photoURL, uid, displayName, createdAt }) => {
+                        let date, hours, minutes, hoursString, minutesString;
 
+                        if (createdAt) {
+                            date = new Date(createdAt["seconds"] * 1000);
+                            hours = date.getHours();
+                            minutes = date.getMinutes();
+
+                            hoursString =
+                                hours < 10
+                                    ? "0" + hours.toString()
+                                    : hours.toString();
+                            minutesString =
+                                minutes < 10
+                                    ? "0" + minutes.toString()
+                                    : minutes.toString();
+                        }
+
+                        return (
+                            <div
+                                key={id}
+                                className={`msg ${
+                                    uid === props.auth.currentUser.uid
+                                        ? "sent"
+                                        : "received"
+                                }`}
+                            >
+                                <div>
+                                    <img
+                                        className={style.profilePict}
+                                        src={photoURL}
+                                    />
+                                </div>
+                                <div className={style.chatContent}>
+                                    <p className={style.displayName}>
+                                        {displayName}
+                                    </p>
+                                    <h5>{text}</h5>
+                                    {createdAt && (
+                                        <h6>
+                                            {hoursString}:{minutesString}
+                                        </h6>
+                                    )}
+
+                                </div>
+                            </div>
+                        );
+                    }
+                )}
+            </div>
             <div className={style.bottomComp}>
                 <SendChat
                     db={props.db}
