@@ -59,17 +59,25 @@ h3{
     font-size: 18px;
 }
 h5{
-    background-color: #f1e4e4 ;
     padding: 10px;
-    border-radius: 20px;
+    
     width: fit-content;
     text-align: left;
     font-weight: lighter;
 }
 
 .msg.sent h5 {
+    border-radius: 20px 0 20px 20px;    
+    background-color: #f1e4e4;
     align-self: flex-end;
 }
 
-.msg.received h5 {
+.msg.sent p {
+    text-align: right;
+}
+
+.msg.received h5 {    
+    border-radius:0 20px  20px 20px; 
+    background-color: #cdccda ;
+
 }
