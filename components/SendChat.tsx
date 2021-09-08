@@ -8,8 +8,8 @@ function SendChat(props: any) {
     async function sendMessage(e: any) {
         e.preventDefault();
         const { uid, photoURL } = props.auth.currentUser;
-        if (msg.replace(/\s/g,"") !== "") {
-            console.log(msg)
+        if (msg.replace(/\s/g, "") !== "") {
+            console.log(msg);
             await props.db.collection("messages").add({
                 text: msg,
                 photoURL,
@@ -17,8 +17,18 @@ function SendChat(props: any) {
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                 displayName: props.displayName,
             });
-            setMsg("");
         }
+        setMsg("");
+
+        const chatComp =
+            document.querySelector(".ChatSpace_chatComp__k8_LM") ||
+            document.createElement("div");
+
+        chatComp.scrollTo({
+            top: chatComp.scrollHeight,
+            left: 0,
+            behavior: "smooth",
+        });
     }
     return (
         <form className={style.containerInputChat} onSubmit={sendMessage}>

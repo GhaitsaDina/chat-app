@@ -18,8 +18,19 @@ function ChatSpace(props: any) {
                 );
             });
     }, []);
+
+    // const scrollRef = useRef(document.createElement("div"));
+    // useEffect(() => {
+    //     scrollRef.current.scrollTo({
+    //         top: scrollRef.current.scrollHeight,
+    //         left: 0,
+    //         behavior: "smooth",
+    //     });
+    // }, [messages]);
+
     let listDateString: string[] = [];
     let currentDate: any;
+
     return (
         <>
             <div className={style.signOut} id="sign_out">
@@ -44,27 +55,31 @@ function ChatSpace(props: any) {
                             minutes,
                             hoursString,
                             minutesString,
-                            dateString: string,
+                            dateString,
                             tanggal,
                             bulan,
                             tahun;
 
                         if (createdAt) {
                             date = new Date(createdAt["seconds"] * 1000);
+
                             hours = date.getHours();
                             minutes = date.getMinutes();
 
                             tanggal = date.getDate().toString();
-                            bulan = (date.getUTCMonth() + 1).toString();
+                            bulan = (date.getMonth() + 1).toString();
                             tahun = date.getFullYear().toString();
 
                             dateString = tanggal + "/" + bulan + "/" + tahun;
                             currentDate = "";
                             if (!listDateString.includes(dateString)) {
                                 listDateString.push(dateString);
-                                currentDate = <h5 className={style.singleDate}>{dateString}</h5>;
+                                currentDate = (
+                                    <h5 className={style.singleDate}>
+                                        {dateString}
+                                    </h5>
+                                );
                             }
-                            // console.log(listDateString);
 
                             hoursString =
                                 hours < 10
@@ -79,7 +94,9 @@ function ChatSpace(props: any) {
                         return (
                             <div key={id}>
                                 <div className={style.dateContainer}>
-                                    <div className={style.date}>{currentDate}</div>
+                                    <div className={style.date}>
+                                        {currentDate}
+                                    </div>
                                 </div>
                                 <div
                                     className={`msg ${
@@ -116,6 +133,7 @@ function ChatSpace(props: any) {
                     db={props.db}
                     auth={props.auth}
                     displayName={props.user.displayName}
+                    scroll={scroll}
                 />
             </div>
         </>

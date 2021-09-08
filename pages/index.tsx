@@ -66,6 +66,7 @@ function Home() {
                 db={db}
                 auth={auth}
             />
+
         </div>
     );
 }

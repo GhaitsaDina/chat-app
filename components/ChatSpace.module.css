@@ -55,15 +55,20 @@
     align-items: center;
     justify-content: center;
     padding-top: 5px;
+    overflow-y: auto;
+    position:sticky;
+    top: 0;
 }
 
 .date{
     background-color: #c4c4c4;
-    border-radius: 15px;
+    border-radius: 20px;
+    opacity: 0.8;
 }
 
 .singleDate{
     font-size: 10px;
-    padding: 5px;
+    padding: 3px 8px;
     color: white;
+    font-weight: bold;
 }
