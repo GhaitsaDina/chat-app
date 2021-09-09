@@ -23,12 +23,27 @@ a {
 
 img {
     border-radius: 100%;
+    width: 40px;
 }
 
 input {
     border-style: none;
     padding: 10px;
     font-size: 14px;
+}
+
+.actions {
+    background-color: #a57982;
+    color: #ffffff;
+    border-style: none;
+    padding: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+
+.actions:hover {
+    opacity: 0.8;
 }
 
 .sent {
@@ -82,8 +97,8 @@ h5 {
     background-color: #cdccda;
 }
 
-h6{
-    color: #C4C4C4;
+h6 {
+    color: #c4c4c4;
     padding-top: 5px;
 }
 

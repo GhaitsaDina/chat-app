@@ -7,20 +7,6 @@
     font-family: "Manrope", sans-serif;
 }
 
-.actions {
-    background-color: #a57982;
-    color: #ffffff;
-    border-style: none;
-    padding: 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s all ease;
-}
-
-.actions:hover{
-    opacity: 0.8;
-}
-
 .signInOut {
     display: flex;
     justify-content: center;

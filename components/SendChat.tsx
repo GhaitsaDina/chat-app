@@ -9,14 +9,14 @@ function SendChat(props: any) {
         e.preventDefault();
         const { uid, photoURL } = props.auth.currentUser;
         if (msg.replace(/\s/g, "") !== "") {
-            console.log(msg);
             await props.db.collection("messages").add({
                 text: msg,
                 photoURL,
                 uid,
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                 displayName: props.displayName,
-            });
+            }
+            );
         }
         setMsg("");
 
@@ -24,11 +24,13 @@ function SendChat(props: any) {
             document.querySelector(".ChatSpace_chatComp__k8_LM") ||
             document.createElement("div");
 
-        chatComp.scrollTo({
-            top: chatComp.scrollHeight,
-            left: 0,
-            behavior: "smooth",
-        });
+        setTimeout(() => {
+            chatComp.scrollTo({
+                top: chatComp.scrollHeight,
+                left: 0,
+                behavior: "smooth",
+            });
+        }, 500);
     }
     return (
         <form className={style.containerInputChat} onSubmit={sendMessage}>

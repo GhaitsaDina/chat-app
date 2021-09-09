@@ -7,7 +7,6 @@ function LoginLogout(props: any) {
         <div className={style.welcomeContainer}>
             {props.user ? (
                 <ChatSpace
-                    style={style}
                     user={props.user}
                     signOut={props.signOut}
                     db={props.db}
@@ -18,7 +17,7 @@ function LoginLogout(props: any) {
                     <h1>Welcome to ChatSpace</h1>
                     <p>please sign in to proceed</p>
                     <button
-                        className={style.actions}
+                        className="actions"
                         onClick={props.signInWithGoogle}
                     >
                         Sign In With Google

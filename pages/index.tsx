@@ -26,8 +26,8 @@ const auth = firebase.app().auth();
 const db = firebase.firestore();
 
 function Home() {
-    const [user, setUser] = useState(() => auth.currentUser);
 
+    const [user, setUser] = useState(() => auth.currentUser);
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
             if (user) {
@@ -66,7 +66,6 @@ function Home() {
                 db={db}
                 auth={auth}
             />
-
         </div>
     );
 }
